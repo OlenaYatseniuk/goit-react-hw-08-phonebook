@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { addContact, fetchContacts, removeContact } from "redux/services/api";
+import { addContact, fetchContacts, removeContact } from "services/contactsApi";
 
 export const getContacts = createAsyncThunk('contacts/getContacts', async (_, {rejectWithValue})=>{
   try{

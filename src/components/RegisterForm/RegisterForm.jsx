@@ -1,15 +1,19 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { authRegister } from 'redux/auth/operations.auth';
 import s from './RegisterForm.module.css';
 
 function RegisterForm() {
-  const [username, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const handleSubmitForm = event => {
     event.preventDefault();
-    const newContact = { username, email, password };
-    console.log(newContact);
+    const newUser = { name, email, password };
+    dispatch(authRegister(newUser));
+    console.log(newUser)
     resetForm();
   };
 
@@ -19,15 +23,15 @@ function RegisterForm() {
       setEmail(value);
     } else if (name === 'password') {
       setPassword(value);
-    } else if (name === 'username') {
-      setUsername(value);
+    } else if (name === 'name') {
+      setName(value);
     }
   };
 
   const resetForm = () => {
     setEmail('');
     setPassword('');
-    setUsername('');
+    setName('');
   };
   return (
     <>
@@ -39,9 +43,9 @@ function RegisterForm() {
             <input
               onChange={handleInputChange}
               className={s.input}
-              value={username}
+              value={name}
               type="text"
-              name="username"
+              name="name"
               placeholder="John Smith"
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"

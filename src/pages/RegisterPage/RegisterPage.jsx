@@ -1,5 +1,5 @@
 import Container from 'components/Container'
-import RegisterForm from 'components/Container/RegisterForm'
+import RegisterForm from 'components/RegisterForm'
 import Section from 'components/Section'
 import React from 'react'
 
