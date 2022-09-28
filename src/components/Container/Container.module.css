@@ -1,0 +1,15 @@
+.container {
+  margin: 0 auto;
+  padding: 60px 20px;
+  /* min-height: 100vh; */
+  max-width: 800px;
+
+  border: 1px solid rgba(141,180,226,1);
+  border-radius: 15px;
+  background: rgb(242,205,221);
+  background: linear-gradient(175deg, rgba(242,205,221,1) 0%, rgba(141,180,226,1) 100%);
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+
+
+}
+

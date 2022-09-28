@@ -1,0 +1,14 @@
+.section {
+  /* margin: 30px auto; */
+  padding: 50px;
+  min-height: 100vh;
+
+  text-align: center;
+
+  background-color: aliceblue;
+   color: #002cbe;;
+}
+
+.title{
+  margin-bottom: 60px;
+}
