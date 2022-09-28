@@ -55,7 +55,7 @@ function ContactForm() {
           value={name}
           type="text"
           name="name"
-          placeholder='John'
+          placeholder='John Smith'
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required

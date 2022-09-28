@@ -1,1 +1,1 @@
-# PhoneBook task 7 - refactored on redux async thunks
+# PhoneBook task 8 - added authentication, private and public routes
