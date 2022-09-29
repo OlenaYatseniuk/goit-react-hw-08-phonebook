@@ -1,7 +1,7 @@
 const initialState = {
   user: { name: null, email: null },
   token: null,
-  isLoggIn: false,
+  isLoggedIn: false,
   isLoading: false,
   isError: null,
   isFetchingCurrentUser: false,

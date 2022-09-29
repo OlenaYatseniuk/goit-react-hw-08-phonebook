@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { authRegister } from 'redux/auth/operations.auth';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { authLogin, authRegister } from 'redux/auth/operations.auth';
 import s from './RegisterForm.module.css';
 
 function RegisterForm() {
@@ -8,12 +10,20 @@ function RegisterForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmitForm = event => {
     event.preventDefault();
     const newUser = { name, email, password };
-    dispatch(authRegister(newUser));
-    console.log(newUser)
+    dispatch(authRegister(newUser))
+      .unwrap()
+      .then(() => {
+        toast.success('Success!');
+        dispatch(authLogin({email, password}))
+        navigate('/', { replace: true });;
+      })
+      .catch(() => toast.error('Error in Register!!!!!!!'));
+    console.log(newUser);
     resetForm();
   };
 

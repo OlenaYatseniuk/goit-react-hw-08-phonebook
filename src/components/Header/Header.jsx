@@ -1,3 +1,4 @@
+import UserMenu from 'components/UserMenu';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -17,6 +18,7 @@ function Header() {
             <NavLink className={s.link} to='/login'>Login</NavLink>
             <NavLink className={s.link} to='/register'>Register</NavLink>
           </Nav>
+          <UserMenu/>
         </Navbar.Collapse>
       </Container>
     </Navbar>

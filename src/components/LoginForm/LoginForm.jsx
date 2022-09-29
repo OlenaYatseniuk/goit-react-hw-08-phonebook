@@ -1,14 +1,27 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { authLogin } from 'redux/auth/operations.auth';
 import s from './LoginForm.module.css';
 
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmitForm = event => {
     event.preventDefault();
-    const newContact = { email, password };
-    console.log(newContact);
+    const user = { email, password };
+    console.log(user);
+    dispatch(authLogin(user))
+      .unwrap()
+      .then(() => {
+        toast.success('Success!');
+        navigate('/', { replace: true });
+      })
+      .catch(() => toast.error('Error in Login !!!!!!!'));
     resetForm();
   };
 

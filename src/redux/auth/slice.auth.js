@@ -1,31 +1,49 @@
-import { createSlice } from "@reduxjs/toolkit";
-import initialState from "./initialState.auth";
-import { authRegister } from "./operations.auth";
+import { createSlice } from '@reduxjs/toolkit';
+import initialState from './initialState.auth';
+import { authRegister, authLogin, authLogout } from './operations.auth';
 
 const handlePending = state => {
   state.isLoading = true;
-  state.error = null;
-}
+  state.isError = null;
+};
 
-const handleRejected = (state, {payload})=>{
+const handleRejected = (state, { payload }) => {
   state.isLoading = false;
-  state.error = payload;
-}
+  state.isError = payload;
+};
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  extraReducers:{
+  extraReducers: {
     [authRegister.pending]: handlePending,
-    [authRegister.fulfilled]: (state, payload)=>{
+    [authRegister.fulfilled]: (state, { payload }) => {
       state.user = payload.user;
       state.token = payload.token;
       state.isLoggedIn = true;
       state.isLoading = false;
     },
-    [authRegister.rejected]:handleRejected,
-  }
-})
+    [authRegister.rejected]: handleRejected,
+    [authLogin.pending]: handlePending,
+    [authLogin.fulfilled]: (state, { payload }) => {
+      state.user = payload.user;
+      state.token = payload.token;
+      state.isLoggedIn = true;
+      state.isLoading = false;
+    },
+    [authLogin.rejected]: handleRejected,
+    [authLogout.pending]: handlePending,
+    [authLogout.fulfilled]: state => {
+      state.user = initialState.user;
+      state.token = null;
+      state.isLoggedIn = false;
+      state.isLoading = false;
+      state.isError = null;
+      state.isFetchingCurrentUser = false;
+    },
+    [authLogout.rejected]: handleRejected,
+  },
+});
 
-const {reducer: authReducer} = authSlice;
+const { reducer: authReducer } = authSlice;
 export default authReducer;
