@@ -10,20 +10,37 @@ import s from './Header.module.css';
 function Header() {
   const isLoggedIn = useSelector(selectLoggedIn);
 
+  const getActiveClassName = ({ isActive }) => {
+    return isActive ? `${s.link} ${s.active}` : s.link;
+  };
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">Photobook App</Navbar.Brand>
+        <Navbar.Brand href="#home">Phonebook App</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <NavLink className={s.link} to="/">Home</NavLink>
-            <NavLink className={s.link} to="/contacts">Contacts</NavLink>
-            <NavLink className={s.link} to='/login'>Login</NavLink>
-            <NavLink className={s.link} to='/register'>Register</NavLink>
-          </Nav>
-          {isLoggedIn && <UserMenu/>}
+          <Nav className="me-auto wrapper">
+              <NavLink className={getActiveClassName} end to="/">
+                Home
+              </NavLink>
+              {isLoggedIn && <NavLink className={getActiveClassName} end to="/contacts">
+                Contacts
+              </NavLink>}
 
+              {isLoggedIn ? (
+              <UserMenu />
+            ) : (
+              <>
+                <NavLink className={getActiveClassName} end to="/login">
+                  Login
+                </NavLink>
+                <NavLink className={getActiveClassName} end to="/register">
+                  Register
+                </NavLink>
+              </>
+            )}
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

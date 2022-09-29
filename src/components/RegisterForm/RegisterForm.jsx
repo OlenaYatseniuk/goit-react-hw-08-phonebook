@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { authLogin, authRegister } from 'redux/auth/operations.auth';
 import s from './RegisterForm.module.css';
@@ -89,7 +89,7 @@ function RegisterForm() {
             />
           </label>
         </div>
-
+        <Link to='/login'> Already has account?</Link>
         <button type="submit" name="submit" className={s.submit}>
           Register
         </button>

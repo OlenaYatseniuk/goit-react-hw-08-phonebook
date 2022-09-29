@@ -1,0 +1,16 @@
+.link{
+  display: inline-block;
+  padding: 10px;
+  margin-left: auto;
+  text-decoration: none;
+  background-color: rgba(141, 181, 226, 0.377);
+  border-radius: 5px;
+  color: black;
+  border: none;
+}
+
+.span{
+  margin-right: 10px;
+  font-weight: 500;
+  color: #002cbe;
+}

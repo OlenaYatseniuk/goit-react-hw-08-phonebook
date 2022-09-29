@@ -2,7 +2,7 @@
   display: inline-block;
   padding: 10px;
   text-decoration: none;
-  background-color: #ccc;
+  background-color: rgba(141, 181, 226, 0.377);
   border-radius: 5px;
   color: black;
 }
@@ -12,6 +12,13 @@
 }
 
 .link.active{
+  color: #002cbe;
   background-color: aliceblue;
+  border: 1px solid rgba(141,180,226,1);
+  background: linear-gradient(175deg, rgba(242,205,221,1) 0%, rgba(141,180,226,1) 100%);
+
   /* border-bottom: 1px solid aliceblue; */
+}
+.title{
+  color: #002cbe !important;
 }

@@ -8,6 +8,9 @@ import { useDispatch } from 'react-redux';
 // import { selectLoggedIn } from 'redux/auth/selectors.auth';
 import { useEffect } from 'react';
 import { authGetCurrentUser } from 'redux/auth/operations.auth';
+import Loader from './Loader';
+import PrivateRoute from 'PrivateRoute';
+import PublicRoute from 'PrivateRoute/PublicRoute';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage'));
@@ -16,23 +19,26 @@ const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 
 export function App() {
   const dispatch = useDispatch();
-  // const isLoggedIn = useSelector(selectLoggedIn);
 
   useEffect(()=>{
-    // if(isLoggedIn){
       dispatch(authGetCurrentUser());
-    // }
   },[dispatch])
 
   return (
     <>
     <Header/>
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loader/>}>
       <Routes>
         <Route path="/" element={<HomePage />}/>
-        <Route path="/contacts"  end element={<ContactsPage />} />
-        <Route path="/login" end element={<LoginPage />} />
-        <Route path="/register" end  element={<RegisterPage />} />
+        <Route path="/contacts"  end element={<PrivateRoute />} >
+          <Route path='' element={<ContactsPage />}/>
+        </Route>
+        <Route path="/login" end element={<PublicRoute restricted/>} >
+          <Route path='' element={<LoginPage />}/>
+        </Route>
+        <Route path="/register" end  element={<PublicRoute restricted/>} >
+          <Route path='' element={<RegisterPage />}/>
+        </Route>
         <Route path="*" element={<Navigate to='/'/>} />
       </Routes>
       </Suspense>

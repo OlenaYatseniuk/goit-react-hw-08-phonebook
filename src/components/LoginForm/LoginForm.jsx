@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { authLogin } from 'redux/auth/operations.auth';
 import s from './LoginForm.module.css';
@@ -70,7 +70,7 @@ function LoginForm() {
             />
           </label>
         </div>
-
+        <Link className={s.link} to='/register'> Dont't have account ?</Link>
         <button type="submit" name="submit" className={s.submit}>
           Login
         </button>
