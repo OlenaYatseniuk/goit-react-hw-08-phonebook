@@ -28,8 +28,8 @@ function ContactsList() {
 
   return (
     <ul className={s.list}>
-      {filteredContacts.map(({ name, id, phone }) => (
-        <ContactsItem name={name} key={id} id={id} phone={phone} />
+      {filteredContacts.map(({ name, id, number }) => (
+        <ContactsItem name={name} key={id} id={id} number={number} />
       ))}
     </ul>
   );
@@ -40,7 +40,7 @@ ContactsList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      phone: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
     })
   ),
 };

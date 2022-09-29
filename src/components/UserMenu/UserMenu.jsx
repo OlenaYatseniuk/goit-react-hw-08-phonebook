@@ -2,14 +2,17 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { authLogout } from "redux/auth/operations.auth";
-import { selectUser } from "redux/auth/selectors.auth"
+import { selectUserEmail, selectUserName } from "redux/auth/selectors.auth"
 
 
 function UserMenu() {
-  const user = useSelector(selectUser);
+  const username = useSelector(selectUserName);
+  const email = useSelector(selectUserEmail);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(user)
+
+
   const handleLogout = () =>{
     dispatch(authLogout()).unwrap()
     .then(()=>{
@@ -19,10 +22,11 @@ function UserMenu() {
       toast.error(`error during logout - ${error}`);
     })
   }
+
   return (
     <div>
-      <span>UserName</span>
-      <span>UserEmail</span>
+      <span>{username}</span>
+      <span>{email}</span>
       <button onClick={handleLogout}>LogOut</button>
     </div>
   )

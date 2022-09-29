@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+
 import { toast } from "react-toastify";
 import { addContact, fetchContacts, removeContact } from "services/contactsApi";
 
@@ -25,9 +26,9 @@ export const addNewContact = createAsyncThunk('contacts/addNewContact', async (c
 
 export const deleteContact = createAsyncThunk('contacts/deleteContact', async (contactId, {rejectWithValue})=>{
   try{
-    const response = await removeContact(contactId);
+   await removeContact(contactId);
     toast('Contact has been successfully deleted!');
-    return response.id;
+    return contactId;
   }catch(error){
     return rejectWithValue({ message: error.message, status: error.response.status})
   }

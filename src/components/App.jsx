@@ -4,6 +4,10 @@ import { lazy, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './Header';
+import { useDispatch } from 'react-redux';
+// import { selectLoggedIn } from 'redux/auth/selectors.auth';
+import { useEffect } from 'react';
+import { authGetCurrentUser } from 'redux/auth/operations.auth';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage'));
@@ -11,6 +15,15 @@ const LoginPage = lazy(() => import('../pages/LoginPage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 
 export function App() {
+  const dispatch = useDispatch();
+  // const isLoggedIn = useSelector(selectLoggedIn);
+
+  useEffect(()=>{
+    // if(isLoggedIn){
+      dispatch(authGetCurrentUser());
+    // }
+  },[dispatch])
+
   return (
     <>
     <Header/>

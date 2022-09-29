@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import initialState from './initialState.auth';
-import { authRegister, authLogin, authLogout } from './operations.auth';
+import { authRegister, authLogin, authLogout, authGetCurrentUser } from './operations.auth';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -42,6 +42,20 @@ const authSlice = createSlice({
       state.isFetchingCurrentUser = false;
     },
     [authLogout.rejected]: handleRejected,
+    [authGetCurrentUser.pending]:(state)=>{
+      handlePending(state);
+      state.isFetchingCurrentUser = true;
+    },
+    [authGetCurrentUser.fulfilled]: (state, {payload})=>{
+      state.user = payload;
+      state.isLoggedIn = true;
+      state.isFetchingCurrentUser = false;
+      state.isLoading = false;
+    },
+    [authGetCurrentUser.rejected]:(state, {payload})=>{
+      handleRejected(state, {payload});
+      state.isFetchingCurrentUser = false;
+    }
   },
 });
 

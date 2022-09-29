@@ -1,4 +1,4 @@
 
-export const getALLContacts =  state => state.items.contacts.items;
+export const getALLContacts =  state => state.contacts.items;
 
-export const getIsLoading = state => state.items.contacts.isLoading;
+export const getIsLoading = state => state.contacts.isLoading;

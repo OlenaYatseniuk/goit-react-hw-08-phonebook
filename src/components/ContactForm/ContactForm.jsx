@@ -8,7 +8,7 @@ import { addNewContact } from 'redux/contacts/operations.contacts';
 
 function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const contacts = useSelector(getALLContacts);
   const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ function ContactForm() {
 
   const handleSubmitForm = event => {
     event.preventDefault();
-    const newContact = { name, phone };
+    const newContact = { name, number };
     createNewContact(newContact);
     resetForm();
   };
@@ -35,14 +35,14 @@ function ContactForm() {
     const { name, value } = event.target;
     if (name === 'name') {
       setName(value);
-    } else if (name === 'phone') {
-      setPhone(value);
+    } else if (name === 'number') {
+      setNumber(value);
     }
   };
 
   const resetForm = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -66,9 +66,9 @@ function ContactForm() {
         <input
           onChange={handleInputChange}
           className={s.input}
-          value={phone}
+          value={number}
           type="tel"
-          name="phone"
+          name="number"
           placeholder='000-000-0000'
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

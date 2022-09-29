@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { deleteContact } from 'redux/contacts/operations.contacts';
 import { ColorRing } from 'react-loader-spinner';
 
-function ContactsItem({ id, name, phone }) {
+function ContactsItem({ id, name, number }) {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,7 +18,7 @@ function ContactsItem({ id, name, phone }) {
   return (
     <li className={s.item}>
       <span className={s.spanName}>{name}:</span>
-      <span className={s.spanTel}>{phone}</span>
+      <span className={s.spanTel}>{number}</span>
       <button
         className={s.button}
         type="button"
@@ -35,7 +35,7 @@ function ContactsItem({ id, name, phone }) {
 ContactsItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
 };
 
 export default ContactsItem;

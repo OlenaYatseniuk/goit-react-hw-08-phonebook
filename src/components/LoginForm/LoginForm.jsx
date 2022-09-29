@@ -19,7 +19,7 @@ function LoginForm() {
       .unwrap()
       .then(() => {
         toast.success('Success!');
-        navigate('/', { replace: true });
+        navigate('/contacts', { replace: true });
       })
       .catch(() => toast.error('Error in Login !!!!!!!'));
     resetForm();

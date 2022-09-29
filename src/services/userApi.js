@@ -16,7 +16,7 @@ export const logoutUser = async (token) =>{
   return data;
 }
 
-export const fetchCurrentUser = async () =>{
-  const {data} = await privateApi.get('users/current');
+export const fetchCurrentUser = async (token) =>{
+  const {data} = await privateApi.get('users/current', token);
   return data;
 }
