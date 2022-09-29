@@ -9,8 +9,8 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { authGetCurrentUser } from 'redux/auth/operations.auth';
 import Loader from './Loader';
-import PrivateRoute from 'PrivateRoute';
-import PublicRoute from 'PrivateRoute/PublicRoute';
+import PrivateRoute from 'components/PrivateRoute';
+import PublicRoute from 'components/PublicRoute';
 
 const HomePage = lazy(() => import('../pages/HomePage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage'));
