@@ -11,7 +11,6 @@ export const authRegister = createAsyncThunk(
   'auth/register',
   async (userCredentials, { rejectWithValue }) => {
     try {
-      console.log('Register successfully!');
       const response = await registerNewUser(userCredentials);
       token.set(response.token);
       return response;
@@ -27,7 +26,6 @@ export const authRegister = createAsyncThunk(
 export const authLogin = createAsyncThunk(
   'auth/login',
   async (userCredentials, { rejectWithValue }) => {
-    console.log('Login successfully!');
     try {
       const response = await loginUser(userCredentials);
       token.set(response.token);
@@ -45,7 +43,6 @@ export const authLogin = createAsyncThunk(
 export const authLogout = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
-    console.log('Logout is starting!');
     try {
       const response = await logoutUser(token);
       token.unset();
@@ -63,18 +60,14 @@ export const authGetCurrentUser = createAsyncThunk(
   'auth/getCurrentUser',
   async (_, { rejectWithValue, getState }) => {
     const currentToken = getState().auth.token;
-    console.log(currentToken);
-    console.log('Get current!');
     try {
       if (!currentToken) {
         return rejectWithValue();
       }
       token.set(currentToken);
       const response = await fetchCurrentUser(currentToken);
-      console.log(response);
       return response;
     } catch (error) {
-      console.log('catch!');
       token.unset();
       return rejectWithValue({
         message: error.message,

@@ -23,7 +23,6 @@ function RegisterForm() {
         navigate('/', { replace: true });;
       })
       .catch(() => toast.error('Error in Register!!!!!!!'));
-    console.log(newUser);
     resetForm();
   };
 

@@ -14,7 +14,6 @@ function LoginForm() {
   const handleSubmitForm = event => {
     event.preventDefault();
     const user = { email, password };
-    console.log(user);
     dispatch(authLogin(user))
       .unwrap()
       .then(() => {
