@@ -6,6 +6,7 @@ import Filter from 'components/Filter';
 import ContactsList from 'components/ContactsList';
 import { useSelector } from 'react-redux';
 import { getIsLoading } from 'redux/contacts/selectors.contacts';
+import { ConfettiContainer } from 'components/Confetti/Confetti';
 
 function ContactsPage() {
   const isLoading = useSelector(getIsLoading);
@@ -18,6 +19,7 @@ function ContactsPage() {
           <Filter />
           <ContactsList />
         </Container>
+        <ConfettiContainer/>
       </Section>
   )
 }
