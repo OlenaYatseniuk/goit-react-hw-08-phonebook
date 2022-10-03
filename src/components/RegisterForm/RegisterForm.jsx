@@ -18,11 +18,11 @@ function RegisterForm() {
     dispatch(authRegister(newUser))
       .unwrap()
       .then(() => {
-        toast.success('Success!');
+        toast.success('You successfully created an account!');
         dispatch(authLogin({email, password}))
         navigate('/', { replace: true });;
       })
-      .catch(() => toast.error('Error in Register!!!!!!!'));
+      .catch(() => toast.error('Something went wrong!Please, try again.'));
     resetForm();
   };
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {  useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -17,10 +17,10 @@ function LoginForm() {
     dispatch(authLogin(user))
       .unwrap()
       .then(() => {
-        toast.success('Success!');
+        toast.success('Glad to see you again!');
         navigate('/contacts', { replace: true });
       })
-      .catch(() => toast.error('Error in Login !!!!!!!'));
+      .catch(() => toast.error('Something went wrong! Please check your email or password'));
     resetForm();
   };
 

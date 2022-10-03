@@ -8,9 +8,9 @@ justify-content: space-between;
 
 .spanName{
   margin-right: 10px;
-  min-width: 100px;
+  min-width: 80px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 14px;
   font-style: italic;
   text-align: start;
   text-transform: uppercase;
@@ -50,4 +50,16 @@ justify-content: space-between;
 
 .button:disabled{
   cursor:not-allowed;
+}
+
+@media screen and (max-width: 450px) {
+  .button{
+    padding: 5px 5px;
+    border-radius: 5px;
+    min-width: 60px;
+    border: 1px solid;
+    cursor: pointer;
+    scale: 1;
+    color: #002cbe;
+  }
 }
