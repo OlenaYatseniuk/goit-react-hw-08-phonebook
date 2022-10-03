@@ -1,4 +1,10 @@
 .list{
   margin-top: 40px;
+  padding: 0;
+}
 
+@media screen and (min-width: 800px) {
+  .list{
+    padding: 0 10px;
+  }
 }

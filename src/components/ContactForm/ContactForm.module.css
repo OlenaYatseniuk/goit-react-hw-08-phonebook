@@ -1,34 +1,90 @@
-.form{
+.form {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+@media screen and (min-width: 800px) {
+  .form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    position: relative;
+  }
+}
+.wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 30%;
+  margin: 0 auto;
+  margin-bottom: 50px;
 }
 
-.label:not(:last-child){
-  margin-right: 40px;
+@media screen and (max-width: 600px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    width: 60%;
+    height: 30%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .wrapper {
+    width: 100%;
+    font-size: 16px;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .label {
+    margin-bottom: 20px;
+    margin-right: 10px;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .label {
+    margin-right: 40px;
+  }
+}
+.span {
+  display: block;
+  width: 30%;
   font-weight: 600;
+  text-align: start;
   text-transform: uppercase;
+  margin-bottom: 5px;
 }
 
-.input{
-  margin-left: 20px;
+.input {
   outline: none;
-  border: 1px solid rgb(242,205,221);
+  border: 1px solid rgb(242, 205, 221);
   color: #f491ac;
 }
 .input:hover,
-.input:focus{
+.input:focus {
   border: 2px solid #f491ac;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.input:placeholder-shown{
+.input:placeholder-shown {
   padding-left: 10px;
   font-weight: 500;
   color: #f491ac;
 }
 
-.submit{
+.submit {
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid;
@@ -37,10 +93,33 @@
   color: #002cbe;
 }
 
-.submit:hover{
+.submit:hover {
   scale: 1.1;
-  background-color:#7dd87d;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background-color: #7dd87d;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   color: beige;
 }
 
+@media screen and (max-width: 600px) {
+  .submit {
+    width: 208px;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 799px) {
+  .submit {
+    width: 150px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .submit {
+    width: 150px;
+    margin: 0 auto;
+    position: absolute;
+    top: 23px;
+    right: 40px;
+  }
+}

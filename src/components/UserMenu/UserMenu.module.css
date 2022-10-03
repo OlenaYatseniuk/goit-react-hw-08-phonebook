@@ -6,7 +6,7 @@
   background-color: rgba(141, 181, 226, 0.377);
   border-radius: 5px;
   color: black;
-  border: none;
+  border: 1px solid #002cbe;
 }
 
 .span{

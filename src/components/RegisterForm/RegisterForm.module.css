@@ -15,6 +15,14 @@
   margin: 0 auto;
 }
 
+@media screen and (max-width: 600px){
+  .wrapper{
+    width: 100%;
+    font-size: 16px;
+    margin: 0;
+  }
+}
+
 .label{
   display: flex;
   justify-content: space-between;
@@ -27,6 +35,13 @@
   font-weight: 600;
   text-align: start;
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 700px){
+  .span{
+    width: 85px;
+    font-size: 14px;
+  }
 }
 
 .input{
@@ -48,6 +63,12 @@
   padding-left: 10px;
   font-weight: 500;
   color: #f491ac;
+}
+
+@media screen and (max-width: 700px){
+  .input{
+    margin-left: 5px;
+  }
 }
 
 .submit{
